@@ -1,0 +1,242 @@
+@import "reset";
+@import "variables";
+
+body {
+    font-family: $-f-spartan;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+header {
+    background: center / cover no-repeat url(../../images/mobile-image-hero-1.jpg);
+    height: 375px;
+    nav {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 50px 25px;
+        .nav__toggle {
+            position: absolute;
+            left: 25px;
+            top: 50px;
+            cursor: pointer;
+        }
+        .nav__links {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: $-c-white;
+            display: flex;
+            align-items: center;
+            padding: 50px 25px;
+            .nav__close {
+                margin-right: auto;
+                cursor: pointer;
+            }
+            .nav__link {
+                text-transform: lowercase;
+                font-size: 12px;
+                font-weight: 700;
+                margin-left: 30px;
+                color: $-c-black;
+            }
+        }
+    }
+}
+
+main {
+    position: relative;
+    .main__slider {
+        display: grid;
+        grid-template-columns: repeat(2, 55px);
+        grid-template-rows: 55px;
+        position: absolute;
+        top: -55px;
+        right: 0;
+        .slider__left, .slider__right {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: $-c-black;
+            cursor: pointer;
+            img {
+                pointer-events: none;
+                width: 10px;
+                user-select: none;
+            }
+            &:hover, &:active {
+                background: $-c-vdark-gray;
+            }
+        }
+    }
+    .main__header, .main__about {
+        padding: 60px 25px;
+        .header__paragraph, .about__paragraph {
+            font-size: 12px;
+            color: $-c-dark-gray;
+            line-height: 1.6em;
+        }
+    }
+    .main__headers {
+        display: flex;
+        width: 300vw;
+        background: $-c-white;
+        .main__header {
+            width: calc(100% / 3);
+            .header__heading {
+                font-size: 26px;
+                font-weight: 700;
+                margin-bottom: 15px;
+            }
+            .header__paragraph {
+                margin-bottom: 50px;
+            }
+            .header__shop {
+                text-transform: uppercase;
+                letter-spacing: 0.9em;
+                font-size: 12px;
+                font-weight: 600;
+                position: relative;
+                cursor: pointer;
+                color: $-c-black;
+                &::after {
+                    content: url(../../images/icon-arrow.svg);
+                    position: absolute;
+                    right: -75px;
+                }
+            }
+        }
+    }
+    .main__about-img {
+        .about-img__dark, .about-img__light {
+            vertical-align: middle;
+            object-fit: cover;
+            width: 100%;
+            height: 240px;
+        }
+    }
+    .main__about {
+        .about__heading {
+            text-transform: uppercase;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.45em;
+            margin-bottom: 15px;
+            line-height: 18px;
+        }
+    }
+}
+
+footer {
+    background: $-c-black;
+    .attribution {
+        font-size: 11px;
+        text-align: center;
+        color: $-c-white;
+        padding: 15px 0 10px;
+        a {
+            color: $-c-white;
+            font-weight: 700;
+            &:hover {
+                color: $-c-dark-gray;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    header {
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        height: 535px;
+        width: calc(100% - 600px);
+        background: top / cover no-repeat url(../../images/desktop-image-hero-1.jpg);
+        nav {
+            padding: 65px 65px 0;
+            .nav__toggle {
+                display: none;
+            }
+            .nav__links {
+                background: transparent;
+                position: static;
+                padding: 0;
+                margin-left: 60px;
+                .nav__close {
+                    display: none;
+                }
+                .nav__link {
+                    color: $-c-white;
+                    font-weight: 500;
+                    margin: 0 40px 0 0;
+                }
+            }
+        }
+    }
+
+    main {
+        padding-top: 535px;
+        .main__header-bg {
+            background: $-c-white;
+            height: 535px;
+            width: calc(100% - 600px);
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 0;
+        }
+        .main__slider {
+            position: absolute;
+            top: 455px;
+            right: 440px;
+            z-index: 1;
+            grid-template-columns: repeat(2, 80px);
+            grid-template-rows: 80px;
+            .slider__left, .slider__right {
+                img {
+                    width: 14px;
+                }
+            }
+        }
+        .main__headers {
+            position: absolute;
+            top: 0;
+            right: -1200px;
+            width: calc(600px * 3);
+            height: 535px;
+            z-index: -1;
+            .main__header {
+                padding: 120px 100px;
+                .header__heading {
+                    font-size: 36px;
+                }
+            }
+        }
+        .main__about-section {
+            display: flex;
+            .about-img__dark, .about-img__light {
+                height: auto;
+            }
+            .about-img__dark {
+                width: 420px;
+            }
+            .about-img__light {
+                width: 440px;
+            }
+            .main__about {
+                padding: 70px 45px 0;
+                .about__heading {
+                    margin-bottom: 10px;
+                }
+                .about__paragraph {
+                    letter-spacing: -0.3px;
+                }
+            }
+        }
+    }
+}
