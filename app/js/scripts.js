@@ -54,9 +54,9 @@ function animateHero() {
     });
     $("header").fadeOut(200, function () {
         if (windowWidth > 1024) {
-            $("header").css("background", `center / cover no-repeat url(../../images/desktop-image-hero-${currHero}.jpg)`);
+            $("header").css("background", `center / cover no-repeat url(./images/desktop-image-hero-${currHero}.jpg)`);
         } else {
-            $("header").css("background", `center / cover no-repeat url(../../images/mobile-image-hero-${currHero}.jpg)`);
+            $("header").css("background", `center / cover no-repeat url(./images/mobile-image-hero-${currHero}.jpg)`);
         }
         $("header").fadeIn(200);
     });
